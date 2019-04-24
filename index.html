@@ -7,11 +7,13 @@
 
         const inputNumber = parseInt(input, 10)
 
-        const date = new Date(2019, 0, inputNumber)
+        document.getElementById('convertedDate').innerText = convert(2019, inputNumber)
 
-        const output = date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' })
+        document.getElementById('convertedDateLeap').innerText = convert(2020, inputNumber)
+      }
 
-        document.getElementById('convertedDate').innerText = output
+      function convert(year, inputNumber) {
+        return (new Date(year, 0, inputNumber)).toLocaleDateString('en-US', { month: 'long', day: 'numeric' })
       }
 
     </script>
@@ -19,6 +21,9 @@
   <body>
     <input id="input" type="text" /><br />
     <button type="button" onclick="run()">Push me!</button><br />
+    <label>Non-leap year</label><br />
     <label id="convertedDate"></label><br />
+    <label>leap year</label><br />
+    <label id="convertedDateLeap"></label>
   </body>
 </html>
