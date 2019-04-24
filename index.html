@@ -5,7 +5,13 @@
       function run() {
         const input = document.getElementById('input').value
 
-        document.getElementById('convertedDate').innerText = input
+        const inputNumber = parseInt(input, 10)
+
+        const date = new Date(2019, 0, inputNumber)
+
+        const output = date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' })
+
+        document.getElementById('convertedDate').innerText = output
       }
 
     </script>
